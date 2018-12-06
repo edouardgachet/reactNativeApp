@@ -1,21 +1,31 @@
 // Components/Search.js
 
-import React from 'react' //importer la librairie react
-import { StyleSheet , View, TextInput, Button } from 'react-native'
+import React from 'react'
+import { StyleSheet, View, TextInput, Button, Text, FlatList } from 'react-native'
+import FilmItem from './FilmItem'
+import film from '../Helpers/filmsData'
 
 class Search extends React.Component {
   render() {
-      console.log(this.props)
-      return (
-          <View style={{ marginTop: 20}}>
-              <TextInput style={styles.textinput} placeholder='Titre du film'/>
-              <Button style={{ height: 50 }} title='Rechercher' onPress={() => {}}/>
-          </View>
-      )
-   }
+    return (
+      <View style={styles.main_container}>
+        <TextInput style={styles.textinput} placeholder='Titre du film'/>
+        <Button style={{ height: 50 }} title='Rechercher' onPress={() => {}}/>
+        <FlatList
+          data={film}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({item}) => <FilmItem film={item}/>}
+        />
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
+  main_container: {
+    flex: 1,
+    marginTop: 20
+  },
   textinput: {
     marginLeft: 5,
     marginRight: 5,
