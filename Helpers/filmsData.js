@@ -12,7 +12,7 @@ export default data = [
    },
    {
       id:181809,
-      vote_average:8.1,
+      vote_average:7.4,
       title:"La Guerre des étoiles",
       poster_path:"",
       original_title:"Star Wars",
